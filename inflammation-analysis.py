@@ -1,10 +1,9 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """Software for managing and analysing patients' inflammation data in our imaginary hospital."""
 
 import argparse
 
 from inflammation import models, views
-
 
 def main(args):
     """The MVC Controller of the patient inflammation data system.
@@ -24,7 +23,8 @@ def main(args):
         view_data = {
             'average': models.daily_mean(inflammation_data),
             'max': models.daily_max(inflammation_data),
-            'min': models.daily_min(inflammation_data)
+            'min': models.daily_min(inflammation_data),
+            'std': models.daily_std(inflammation_data)
         }
 
         views.visualize(view_data)
